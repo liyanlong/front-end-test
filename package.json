@@ -7,7 +7,8 @@
     "test": "npm run test:unit && npm run test:cover",
     "dev:test": "karma start test/unit/karma.dev.config.js --auto-watch",
     "test:unit": "karma start test/unit/karma.unit.config.js",
-    "test:cover": "karma start test/unit/karma.cover.config.js"
+    "test:cover": "karma start test/unit/karma.cover.config.js",
+    "coveralls": "npm run test:cover && node scripts/coverage.js"
   },
   "author": "liyanlong",
   "license": "ISC",
@@ -18,6 +19,7 @@
     "babel-plugin-istanbul": "^4.1.5",
     "babel-polyfill": "^6.26.0",
     "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
     "karma": "^2.0.0",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^1.1.1",
