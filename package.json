@@ -4,6 +4,7 @@
   "description": "前端面试解答",
   "main": "index.js",
   "scripts": {
+    "test": "npm run test:unit && npm run test:cover",
     "dev:test": "karma start test/unit/karma.dev.config.js --auto-watch",
     "test:unit": "karma start test/unit/karma.unit.config.js",
     "test:cover": "karma start test/unit/karma.cover.config.js"
@@ -14,6 +15,7 @@
     "@babel/core": "^7.0.0-beta.37",
     "@babel/preset-env": "^7.0.0-beta.37",
     "babel-loader": "^8.0.0-beta.0",
+    "babel-plugin-istanbul": "^4.1.5",
     "babel-polyfill": "^6.26.0",
     "chai": "^4.1.2",
     "karma": "^2.0.0",

@@ -49,8 +49,7 @@ describe('Table', () => {
      * 
      */
     it('#mergeTr()', () => {
-      mergeTr(table)
-      
+      // mergeTr(table)
     })
   })
 

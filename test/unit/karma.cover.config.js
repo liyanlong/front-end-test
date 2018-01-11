@@ -4,6 +4,9 @@ module.exports = function (config) {
   var options = Object.assign(base, {
     browsers: ['PhantomJS'],
     reporters: ['mocha', 'coverage'],
+    preprocessors: {
+      './index.js': ['webpack', 'sourcemap']
+    },
     coverageReporter: {
       reporters: [
         { type: 'lcov', dir: '../../coverage', subdir: '.' },
@@ -16,5 +19,12 @@ module.exports = function (config) {
       'karma-phantomjs-launcher'
     ])
   })
+  // add babel-plugin-istanbul for code instrumentation
+  options.webpack.module.rules[0].options = {
+    plugins: [['istanbul', {
+      exclude: [
+      ]
+    }]]
+  }
   config.set(options)
 }
