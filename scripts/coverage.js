@@ -1,23 +1,20 @@
 #!/usr/bin/env node
 const fs = require('fs')
 const path = require('path')
-const coveralls = require('coveralls')
+const { spawn } = require('child_process')
+const lcovFile = path.resolve(__dirname, '../coverage/lcov.info')
 
-const iconvFile = path.resolve(__dirname, './coverage/iconv.info')
-
-function handleInputCb (err) {
-  if (err) {
-    throw err;
-  }
-}
-
-if (fs.existsSync(iconvFile)) {
-  fi.readFile(iconvFile, {
+if (fs.existsSync(lcovFile)) {
+  fs.readFile(lcovFile, {
     encoding: 'utf8',
     flg: 'r'
   }, function (err, data) {
     if (err) throw err
-    coveralls.handleInput(data, handleInputCb)
+    const coveralls = spawn('node', ['./node_modules/coveralls/bin/coveralls'])
+    coveralls.stdin.write(data)
+    coveralls.stdin.end()
+    coveralls.stdout.pipe(process.stdout)
   })
+} else {
+  throw new Error(lcovFile + ' not exists')
 }
-console.log('coverage end')
