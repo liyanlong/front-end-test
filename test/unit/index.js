@@ -1,3 +1,4 @@
+require('babel-polyfill')
 require('es6-promise/auto')
 
 // import all helpers

@@ -20,6 +20,7 @@ describe('camelCase <=> underline', () => {
   });
 
   describe('#underlineToCamelCase()', () => {
+
     it('should throw TypeError when the value is not typeof string', () => {      
       try {
         underlineToCamelCase()
