@@ -16,3 +16,4 @@
 - [实现下划线与驼峰变量名转换](./src/core/util/came_case.js#L12-L34)
 - [数组去重](./src/core/util/array_unique.js)
 - [合并 Table 单元格](./src/core/dom/table/merge_span.js)
+- [Int类型与IP相互转换](./src/core/util/ip_format.js)
