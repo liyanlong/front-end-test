@@ -1,11 +1,11 @@
 /**
- * 合并行
+ * 合并行单元格
  * @param {HTMLTableElement} el
  * @throws {TypeError}
  * 
  * @return {table}
  */
-export function mergeTr (el) {
+export function mergeRowspan (el) {
   
   if (!(el instanceof HTMLTableElement)) {
     throw TypeError('要求传入Table元素')
@@ -26,5 +26,10 @@ export function mergeTr (el) {
       }
     }
   }
-  el.parentNode.replaceChild(cloneEl, el)
+  el.innerHTML = cloneEl.innerHTML
+  return el
+}
+
+export function mergeColspan () {
+
 }

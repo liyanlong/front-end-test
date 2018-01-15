@@ -1,11 +1,13 @@
+import {assert} from 'chai'
 import {
   createElm
 } from '../../utils'
+
 import {
   trim
 } from 'core/util'
-import { mergeTr } from '../../../../src/core/dom/table/merge_span';
 
+import { mergeRowspan } from '../../../../src/core/dom/table/merge_span'
 
 describe('Table', () => {
   let table
@@ -35,22 +37,28 @@ describe('Table', () => {
       </tbody>
       `
       table.innerHTML = trim(html)
+      document.body.appendChild(table)
     })
     
     /**
      * 
      * --------------        --------------
-     * | A | testA  |        | A | testA  |
-     * --------------        --------------
-     * | B | testA  |   =>   |   | testA  |
+     * | A | testA  |        | A |        |
+     * --------------        ----  testA  |
+     * | B | testA  |   =>   |   |        |
      * --------------          B  ---------
      * | B | testB2 |        |   | testB2 |
      * --------------        --------------
      * 
      */
-    it('#mergeTr()', () => {
-      // mergeTr(table)
+    it('#mergeRowspan()', () => {
+      mergeRowspan(table)
+      const column = table.querySelector('tbody > tr:first-child > td:nth-child(2)')
+      assert.equal(column.rowSpan, '2')
     })
   })
 
+  afterEach(function ()　{
+    document.body.removeChild(table)
+  })
 })
