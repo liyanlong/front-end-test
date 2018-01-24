@@ -10,10 +10,18 @@
 如果大家有遇到一些前端面试题, 不太会实现的， 也欢迎提供Issue， 大家一起来探讨
 
 
-
 ## 前端面试题
 
 - [实现下划线与驼峰变量名转换](./src/core/util/came_case.js#L12-L34)
-- [数组去重](./src/core/util/array_unique.js)
+- [数组去重](./src/core/util/array.js#L6-L16)
 - [合并 Table 单元格](./src/core/dom/table/merge_span.js)
 - [Int类型与IP相互转换](./src/core/util/ip_format.js)
+
+## 业务面试题
+
+- [计算时间段内股票最优投资区间](./src/business/stock.js)
+
+## 算法面试题
+
+- [冒泡排序算法](./src/arithmetic/sort.js#L3-L24)
+- [二分查找算法](./src/arithmetic/search.js#L1-L33)
