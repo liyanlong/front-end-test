@@ -80,3 +80,7 @@ export function extend_array_unique (...args) {
 
   return result
 }
+
+export function create_array (length = 0) {
+  return Array.apply(null, {length})
+}
