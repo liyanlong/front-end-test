@@ -57,7 +57,7 @@ export function extend_array_unique (...args) {
       return typeof obj + ':' + obj
     }
     Object.keys(obj).sort().forEach((key) => {
-      if (keyStr !== '')　{
+      if (keyStr !== '') {
         keyStr += ','
       }
       keyStr += typeof obj[key] 

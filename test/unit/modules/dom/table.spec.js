@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 import {assert} from 'chai'
 import {
   createElm
@@ -18,8 +19,7 @@ describe('Table', () => {
   })
 
   describe('Table Rowspan', () => {
-    
-     /**
+    /**
      * -------------- 
      * | A | testA  | 
      * -------------- 
@@ -91,7 +91,7 @@ describe('Table', () => {
 
   })
 
-  afterEach(function ()　{
+  afterEach(function () {
     document.body.removeChild(table1)
     document.body.removeChild(table2)
   })

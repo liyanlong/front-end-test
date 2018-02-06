@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 import {assert} from 'chai'
 import {
   array_unique,

@@ -9,7 +9,7 @@
  * 
  * @return {Array} 已排序数组
  */
-export function bubble_sort (arr, sort = 'desc')　{
+export function bubble_sort (arr, sort = 'desc') {
   arr = arr.slice()
   for (let i = 0; i < arr.length; i ++) {
     for (let j = 1; j < arr.length - i - i; j++) {
