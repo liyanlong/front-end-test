@@ -1,5 +1,5 @@
 import {
-  create_array
+  create_nature_array
 } from './array'
 
 /**
@@ -15,7 +15,7 @@ export function random_num (min, max, length) {
   min = Math.max(0, min)
   max = Math.max(0, max)
   let [_min, _max] = [Math.min(max, min), Math.max(min, max)]
-  const ret = create_array(length)
+  const ret = create_nature_array(length)
   const base = _max - _min
   const mapFn = _min === _max
     ? () => _min

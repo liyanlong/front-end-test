@@ -1,4 +1,7 @@
-import {isPlainObject} from './util'
+import {
+  isPlainObject,
+  isNative
+} from './util'
 
 /**
  * 简单去重, 使用 indexOf
@@ -81,6 +84,13 @@ export function extend_array_unique (...args) {
   return result
 }
 
-export function create_array (length = 0) {
-  return Array.apply(null, {length})
+/**
+ * ES5的方法创建一个自然数组
+ * @param {*} length 
+ */
+export function create_nature_array (length = 0) {
+  if (isNative(Array.from)) {
+    return Array.from(Array(length).keys())
+  }
+  return Array.apply(null, {length}).map((v, k) => k)
 }

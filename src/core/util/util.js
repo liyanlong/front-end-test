@@ -59,3 +59,14 @@ export function ltrim (str) {
 export function rtrim (str) {
   return String(str).replace(/\s$/, '')
 }
+
+/**
+ * 判断是否为原生函数
+ * 
+ * @param {Function}
+ * 
+ * @return {boolean}
+ */
+export function isNative (Ctor) {
+  return typeof Ctor === 'function' && /native code/.test(Ctor.toString())
+}

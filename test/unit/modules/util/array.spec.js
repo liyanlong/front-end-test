@@ -4,7 +4,7 @@ import {
   array_unique,
   array_unique2,
   extend_array_unique,
-  create_array
+  create_nature_array
 } from 'core/util'
 
 describe('Array', () => {
@@ -37,7 +37,7 @@ describe('Array', () => {
     it('#createArray', () => {
       const length = 10
       const maps = [
-        create_array(length),
+        create_nature_array(length),
         [...Array(length)],
         Array.from(Array(length))
       ]
