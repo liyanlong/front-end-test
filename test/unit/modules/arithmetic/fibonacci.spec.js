@@ -4,24 +4,23 @@ import {
   fast,
 } from '@/arithmetic/fibonacci'
 import {assert} from 'chai'
-const Benchmark = require('benchmark');
 
 describe('fibonacci arithmetic', () => {
   
   describe('check fibonacci ok', () => {
 
     it('#normal fibonacci', () => {
-      assert.equal(normal(5), 5, 'the normal fibonacci is not pass');
-    });
+      assert.equal(normal(5), 5, 'the normal fibonacci is not pass')
+    })
   
     it('#tail arithmetic', () => {
-      assert.equal(tail(5), 5, 'the normal fibonacci is not pass');
-    });
+      assert.equal(tail(5), 5, 'the normal fibonacci is not pass')
+    })
   
     it('#fast arithmetic', () => {
-      assert.equal(fast(5), 5, 'the normal fibonacci is not pass');
-    });
+      assert.equal(fast(5), 5, 'the normal fibonacci is not pass')
+    })
   
-  });
+  })
 
-});
+})

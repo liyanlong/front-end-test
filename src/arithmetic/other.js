@@ -30,5 +30,5 @@ export function gotoStep (lessStep, currentRoute, routes) {
  * 
  * @return {str}
  */
-export function getMaxLenSubstr (bigStr) {
-}
+// export function getMaxLenSubstr (bigStr) {
+// }
