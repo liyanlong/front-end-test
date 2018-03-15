@@ -1,22 +1,19 @@
 /* eslint-disable no-console */
+const fibonacci = require('../../src/arithmetic/fibonacci')
 var Benchmark = require('benchmark')
 var suite = new Benchmark.Suite
 
-function MyObject() {}
-
-function foo () {
-  return typeof this
-}
 
 // add tests
-suite.add('Function#CallObject', function() {
-  var object = new MyObject()
-  foo.call(object, 1, 2)
+suite.add('Function#normal', function() {
+  fibonacci.normal(5)
 })
-  .add('Function#CallNull', function() {
+  .add('Function#tail', function() {
     // eslint-disable-next-line
-    var object = new MyObject()
-    foo.call(null, 1, 2)
+    fibonacci.tail(5)
+  })
+  .add('Function#fast', function () {
+    fibonacci.fast(5)
   })
   // add listeners
   .on('cycle', function(event) {

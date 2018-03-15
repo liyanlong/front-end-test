@@ -1,8 +1,10 @@
+/* eslint-env mocha */
 import {Ip} from 'core/class'
 import {assert} from 'chai'
+
 describe('Ip', () => {
 
-  let ipList = [];
+  let ipList = []
 
   beforeEach(function () {
     ipList = [
