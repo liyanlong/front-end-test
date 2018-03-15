@@ -6,15 +6,15 @@
  */
 function normal (n) {
   if (n < 0) {
-    return - 1;
+    return - 1
   }
   if (n === 0) {
-    return 0;
+    return 0
   }
   if (n === 1 || n === 2) {
-    return 1;
+    return 1
   }
-  return normal(n -1) + normal(n - 2);
+  return normal(n -1) + normal(n - 2)
 }
 
 /**
@@ -25,19 +25,19 @@ function normal (n) {
  */
 function _tail (n, current, next) {
   if (n === 0) {
-    return current;
+    return current
   }
   if (n === 1) {
-    return next;
+    return next
   }
-  return _tail(n - 1, next, current + next);
+  return _tail(n - 1, next, current + next)
 }
 
 function tail (n) {
   if (n < 0) {
-    return -1;
+    return -1
   }
-  return _tail(n, 0, 1);
+  return _tail(n, 0, 1)
 }
 
 /**
@@ -48,38 +48,37 @@ function tail (n) {
  */
 function fast (n) {
   if (n < 0) {
-    return -1;
+    return -1
   }
   if (n === 0) {
-    return 0;
+    return 0
   }
   if (n === 1 || n === 2) {
-    return 1;
+    return 1
   }
-  let tmp;
-  let prevent = 1;
-  let current = 1;
-  for (i = 3; i <= n; i++) {
-    let tmp = prevent + current;
-    prevent = current;
-    current = tmp;
+  let prevent = 1
+  let current = 1
+  for (let i = 3; i <= n; i++) {
+    let tmp = prevent + current
+    prevent = current
+    current = tmp
   }
-  return current;
+  return current
 }
 
 var strategy = {
   normal: normal,
   tail: tail,
   fast: fast
-};
+}
 
 exports = module.exports = function fibonacci(n, type) {
   if (strategy[type]) {
-    return strategy[type].call(null, n);
+    return strategy[type].call(null, n)
   }
-  return normal(n);
-};
+  return normal(n)
+}
 
-exports.normal = normal;
-exports.tail = tail;
-exports.fast = fast;
+exports.normal = normal
+exports.tail = tail
+exports.fast = fast
