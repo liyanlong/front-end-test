@@ -14,6 +14,7 @@
 
 - [实现下划线与驼峰变量名转换](./src/core/util/came_case.js#L12-L34)
 - [数组去重](./src/core/util/array.js#L6-L16)
+- [随机获取范围内不重复的数字](./src/core/util/random.js)
 - [合并 Table 单元格](./src/core/dom/table/merge_span.js)
 - [Int类型与IP相互转换](./src/core/util/ip_format.js)
 - [大数字的相加](./src/core/util/math.js#L2-L33)
