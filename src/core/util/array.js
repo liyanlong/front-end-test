@@ -94,3 +94,10 @@ export function create_nature_array (length = 0) {
   }
   return Array.apply(null, {length}).map((v, k) => k)
 }
+
+/**
+ * 数组随机打乱
+ */
+export function shuffle (arr) {
+  return arr
+}
