@@ -18,3 +18,13 @@ export function gotoStep (lessStep, currentRoute, routes) {
   }
   return routes;
 }
+
+
+/**
+ * 大字符串查找长度大于等于2的连续出现的子字符串
+ * 
+ * 要求：
+ * 1. 子字符串出现次数 大于2
+ * 2. 同出现次数情况下， 选取子字符串最长的字符串
+ * 3. 同出现次数，同字符串长度情况下，选取最先找到的字符串
+ */
