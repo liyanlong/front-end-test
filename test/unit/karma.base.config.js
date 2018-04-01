@@ -27,9 +27,12 @@ const webpackConfig = {
 module.exports = {
   frameworks: ['mocha'],
   files: [
+    '../../node_modules/lodash/lodash.js',
+    '../../node_modules/platform/platform.js',
     './index.js'
   ],
   preprocessors: {
+    '../../node_modules/lodash/lodash.js': ['webpack'],
     './index.js': ['webpack', 'sourcemap']
   },
   webpack: webpackConfig,

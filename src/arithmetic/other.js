@@ -7,24 +7,28 @@
  * @return {array}
  */
 export function gotoStep (lessStep, currentRoute, routes) {
-  currentRoute = currentRoute || '';
+  currentRoute = currentRoute || ''
   if (lessStep >= 2) {
-    gotoStep(lessStep - 1, currentRoute + '1', routes);
-    gotoStep(lessStep - 2, currentRoute + '2', routes);
-  } else if (lessStep == 1) {
-    gotoStep(lessStep - 1, currentRoute + '1', routes);
+    gotoStep(lessStep - 1, currentRoute + '1', routes)
+    gotoStep(lessStep - 2, currentRoute + '2', routes)
+  } else if (lessStep === 1) {
+    gotoStep(lessStep - 1, currentRoute + '1', routes)
   } else if (lessStep === 0) {
-    routes.push(currentRoute);
+    routes.push(currentRoute)
   }
-  return routes;
+  return routes
 }
 
-
 /**
- * 大字符串查找长度大于等于2的连续出现的子字符串
+ * 目前有一个大文本字符串, 匹配其中出现至少2个文字的子字符串
+ * 匹配规则：
+ * 1. 出现最多次数的字符串
+ * 2. 如果出现同次数字符串， 取最长的子字符串
+ * 3. 如果出现同次数且字符串长度相同的子字符串，选取最先匹配的子字符串
  * 
- * 要求：
- * 1. 子字符串出现次数 大于2
- * 2. 同出现次数情况下， 选取子字符串最长的字符串
- * 3. 同出现次数，同字符串长度情况下，选取最先找到的字符串
+ * @param bigStr
+ * 
+ * @return {str}
  */
+// export function getMaxLenSubstr (bigStr) {
+// }

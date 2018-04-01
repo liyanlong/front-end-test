@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 import {assert} from 'chai'
 import {
   camelCaseToUnderline,
@@ -17,7 +18,7 @@ describe('camelCase <=> underline', () => {
         assert.instanceOf(e, TypeError)
       }
     })
-  });
+  })
 
   describe('#underlineToCamelCase()', () => {
 
