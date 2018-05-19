@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Promise</title>
+</head>
+<body>
+  <img id="local" src="../docs/img/promise.png" alt="">
+  <img id="remote" src="https://www.baidu.com/img/bd_logo1.png?where=super" alt="">
+</body>
+<script>
+  function loaded (el, cb) {
+    if (el.complete) {
+      cb()
+    } else {
+      el.addEventListener('load', function () {
+        cb()
+      })
+    }
+    
+    
+  }
+  window.addEventListener('load', function () {
+    console.log('window loaded')
+    
+  })
+  document.querySelector('img#remote').addEventListener('load', function () {
+    console.log('remote img loaded')
+  })
+  var time = Date.now();
+  var date = 1;
+  while (Date.now() < time + 1000 * 10) {
+    
+  }
+  // loaded(document.querySelector('img#remote'), function () {
+  //   console.log('remote img loaded')
+  // })
+  // loaded(document.querySelector('img#local'), function () {
+  //   console.log('local img loaded')
+  // })
+</script>
+</html>
