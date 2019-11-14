@@ -109,7 +109,7 @@ fn1()
 
 `fn2 -> _a -> fn1 -> global`
 
-**执行栈：**
+**执行栈:**
 
 ```
 fn1
@@ -122,6 +122,139 @@ fn1
 ```
 
 **并行异步回调**
+
+```javascript
+function taskA(cb) {
+  console.log('taskA start');
+  setTimeout(function () {
+    console.log('taskA end');
+    cb(1);
+  }, 200);
+}
+
+function taskB(cb) {
+  console.log('taskB start');  
+  setTimeout(function () {
+    console.log('taskB end');
+    cb(2);
+  }, 500);
+}
+
+function runTask(cb) {
+  var flagA = false, flagB = false;
+  var dataA = null, dataB = null;
+
+  taskA(function (data) {
+    flagA = true;
+    dataA = data;
+    if (flagB) {
+      cb([dataA, dataB]);
+    }
+  });
+  taskB(function (data) {
+    flagB = true;
+    dataB = data;
+    if (flagA) {
+      cb([dataA, dataB]);
+    }
+  });
+}
+console.log('task start')
+runTask(function (data) {
+  console.log('task end');
+  console.log(data);  
+});
+```
+
+**结论:**
+场景中如果有多个异步请求需要并行, 普通的回调的处理方式就比较复杂了, 上述采用了 `flag` 变量。
+
+**优化异步回调**
+
+```javascript
+function Task(fn) {
+  this.status = 'loading';
+  this.data = null;
+  this.err = null;
+  this.next = null;
+  var self = this;
+
+  this.finish = function (onResolve, onReject) {
+    var res = new onResolve(noop);
+    handle(this, new Handler(onFulfilled, onRejected, res));
+    return res;
+    cb.call(this, self.data);
+  };
+
+  this.catch = function (cb) {
+    cb.call(this, self.err);
+  };
+
+  function resolve(data) {
+    self.status = Task.status.SUCCESS;
+    self.data = data;
+  }
+  
+  function reject(err) {
+    self.status = Task.status.ERROR;
+    self.err = err;
+  }
+
+  try {
+    fn.call(this, resolve, reject);
+  } catch (error) {
+    reject(error);
+  }
+
+}
+
+Task.status = {
+  LOADING: 'loading',
+  SUCCESS: 'success',
+  ERROR: 'error'
+};
+
+Task.all = function (list) {
+  var self = this;
+  var count = list.length;
+  var seed = 0;
+  var _task = new Task(function (resolve, reject) {
+    list.forEach(function (task) {
+      task.finish(function (val) {
+        seed++;
+        if (seed === count) {
+          var data = list.map(function (t) {
+            return t.data;
+          });
+          resolve(data);
+        }
+      });
+    })
+  });
+  return _task;
+}
+var taskA = new Task(function (resolve) {
+  console.log('taskA start');
+  setTimeout(function () {
+    console.log('taskA end');
+    resolve(1);
+  }, 200);
+});
+
+var taskB = new Task(function (resolve) {
+  console.log('taskB start');  
+  setTimeout(function () {
+    console.log('taskB end');
+    resolve(2);
+  }, 200);
+});
+
+Task.all([taskA, taskB]).finish(function (data) {
+  console.log('task done');
+  console.log(data);
+});
+```
+
 
 ## Promise 
 

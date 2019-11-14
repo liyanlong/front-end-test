@@ -29,3 +29,4 @@
 - [二分查找算法](./src/arithmetic/search.js#L1-L33)
 - [走台阶问题，每次可以走1步或者2步，走到第n个台阶有多少种方式](./src/arithmetic/other.js#L)
 - [斐波那契数列, 递归，尾部递归，循环实现方式](./src/arithmetic/fibonacci.js)
+- [二叉树遍历](./src/arithemetic/tree/binarytree.js)
