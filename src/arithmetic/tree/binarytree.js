@@ -12,18 +12,19 @@ function Node (name) {
 /*
 *
 *     a
-*   /
-*  b
+*   /  \
+*  b    d
 *    \
 *     c
 */
 const nodeA = new Node('a');
 const nodeB = new Node('b');
 const nodeC = new Node('c');
+const nodeD = new Node('d');
 
 nodeA.left = nodeB;
 nodeB.right = nodeC;
-
+nodeA.right = nodeD;
 /**
  * 前序遍历
  *
@@ -35,7 +36,7 @@ function preOrderSort(root) {
   root.right && preOrderSort(root.right);
 }
 
-
+preOrderSort(nodeA);
 /*
 * 获取 二叉树的深度
 */
