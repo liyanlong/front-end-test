@@ -274,15 +274,42 @@ Task.all([taskA, taskB]).finish(function (data) {
 
 **`new Promie()`**
 
+```js
+function fetchData (url) {
+  return new Promise(function (resolve) {
+    $.getJSON(url, function (data) {
+      resolve(data);
+    });
+  });
+}
+
+fetchData('/api/user_info').then(function (data) {
+  // ...
+});
+
+// 注意!
+var p = fetchData('/api/user_info');
+p.then(function (data) {
+  // ...
+});
+
+// 第二次不会再次发送请求， 而是将已暂存的数据再次传递给then的回调函数
+p.then(function (data) {
+  // ...
+});
+```
+
 
 
 ## 运用场景
-
+- 多个异步任务成功后的回调处理
+- 异步任务顺序执行
 
 ## 相关类库
+- blubird
+- Q.js
+- es6-promise
 
-
-## 如何自行封装一个Promise对象
 
 ## 参考文章
 - [JavaScript Promise：简介](https://developers.google.com/web/fundamentals/primers/promises?hl=zh-cn)
