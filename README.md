@@ -18,7 +18,7 @@
 - [合并 Table 单元格](./src/core/dom/table/merge_span.js)
 - [Int类型与IP相互转换](./src/core/util/ip_format.js)
 - [大数字的相加](./src/core/util/math.js#L2-L33)
-
+- [请用js实现一个函数求解整数N、N满足 %2==1, %3==2, %5==4, %6==5, %7==0](./src/core/business/n.js)
 ## 业务面试题
 
 - [计算时间段内股票最优投资区间](./src/business/stock.js)
@@ -29,4 +29,5 @@
 - [二分查找算法](./src/arithmetic/search.js#L1-L33)
 - [走台阶问题，每次可以走1步或者2步，走到第n个台阶有多少种方式](./src/arithmetic/other.js#L)
 - [斐波那契数列, 递归，尾部递归，循环实现方式](./src/arithmetic/fibonacci.js)
-- [二叉树遍历](./src/arithemetic/tree/binarytree.js)
+- [二叉树遍历，深度寻找](./src/arithemetic/tree/binarytree.js)
+- [链表加法](./src/arithemetic/chain/add.js)
