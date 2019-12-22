@@ -31,4 +31,4 @@
 - [斐波那契数列, 递归，尾部递归，循环实现方式](./src/arithmetic/fibonacci.js)
 - [二叉树遍历，深度寻找](./src/arithemetic/tree/binarytree.js)
 - [链表加法](./src/arithemetic/chain/add.js)
-- [组合字符串abc, 返回若干种组合序列如 abc, acb, bac, bca, cab, cba](./src/arithemetic/chain/add.js)
+- [组合字符串abc, 返回若干种组合序列如 abc, acb, bac, bca, cab, cba](./src/arithemetic/string/index.js)
