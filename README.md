@@ -18,7 +18,7 @@
 - [合并 Table 单元格](./src/core/dom/table/merge_span.js)
 - [Int类型与IP相互转换](./src/core/util/ip_format.js)
 - [大数字的相加](./src/core/util/math.js#L2-L33)
-- [请用js实现一个函数求解整数N、N满足 %2==1, %3==2, %5==4, %6==5, %7==0](./src/core/business/n.js)
+- [请用js实现一个函数求解整数N、N满足 %2==1, %3==2, %5==4, %6==5, %7==0](./src/business/n.js)
 ## 业务面试题
 
 - [计算时间段内股票最优投资区间](./src/business/stock.js)
